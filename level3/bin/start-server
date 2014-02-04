@@ -1,0 +1,13 @@
+#!/bin/sh
+
+set -eu
+
+if [ "$#" -gt 0 ]
+then
+    if [ "$1" = "--master" ]
+    then
+        server_path="$(dirname "$0")/server"
+        "$server_path"
+    fi
+fi
+

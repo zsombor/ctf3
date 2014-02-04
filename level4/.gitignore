@@ -1,0 +1,10 @@
+octopus
+sqlcluster
+!/cmd/sqlcluster
+!/.build/src/stripe-ctf.com/sqlcluster
+/test/data/octopus.version
+/test/data/downloaded_test_cases/
+.build/src/code.google.com/
+.build/src/github.com/gorilla/
+.build/src/bitbucket.org/
+.build/pkg/

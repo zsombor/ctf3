@@ -1,0 +1,27 @@
+#!/bin/bash
+
+set -eu
+declare -a pids
+pids=()
+
+run() {
+  echo "+ $*"
+  "$@" &
+  pids+=("$!")
+}
+
+cleanup() {
+  for pid in "${pids[@]}"; do
+    echo "$0: killing child $pid"
+    kill "$pid"
+  done
+}
+
+trap cleanup INT TERM QUIT
+
+server_path="$(dirname "$0")/server"
+run $server_path
+
+echo "$0: servers started"
+
+wait
